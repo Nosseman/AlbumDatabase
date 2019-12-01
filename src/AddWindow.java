@@ -1,4 +1,3 @@
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -30,22 +29,6 @@ public class AddWindow extends JFrame {
 	private JLabel lblGenre;
 	private JTextField genreField;
 	private JButton btnSave;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					AddWindow frame = new AddWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
@@ -162,19 +145,20 @@ public class AddWindow extends JFrame {
 		String artist = artistField.getText();
 		String year = yearField.getText();
 		String genre = genreField.getText();
-		// new album object
+		
+		// no null values allowed
 		if(albumName.isEmpty() || artist.isEmpty() || year.isEmpty() || genre.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Täytä kaikki kentät!", "Virhe!", JOptionPane.WARNING_MESSAGE);
 			
 		} else {
-		Album newAlbum = new Album(albumName, artist, Integer.parseInt(year), genre);
-		
-		//using the DbHandler functions to save into database
-		DbHandler.addAlbum(newAlbum);
-		JOptionPane.showMessageDialog(this, "Tallennettu");
-		setVisible(false);
+			// new album object
+			Album newAlbum = new Album(albumName, artist, Integer.parseInt(year), genre);
+
+			// using the DbHandler functions to save into database
+			DbHandler.addAlbum(newAlbum);
+			JOptionPane.showMessageDialog(this, "Tallennettu");
+			setVisible(false);
 		}
-		
 
 	}
 

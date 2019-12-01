@@ -1,11 +1,9 @@
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-
 import java.awt.GridBagConstraints;
 import java.awt.Font;
 import javax.swing.JTextField;
@@ -24,22 +22,6 @@ public class RemoveWindow extends JFrame {
 	private JLabel lblAlbumName;
 	private JTextField albumField;
 	private JButton btnPoista;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					RemoveWindow frame = new RemoveWindow();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.

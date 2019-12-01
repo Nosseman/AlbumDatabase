@@ -4,7 +4,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.swing.table.DefaultTableModel;
 
 public class DbHandler {
@@ -14,7 +13,6 @@ public class DbHandler {
 	static final String DB_URL = "jdbc:mysql://localhost:3306/albumidb";
 	static final String USER = "root";
 	static final String PASS = "";
-	
 
 	public static void loadDb(DefaultTableModel model) {
 
@@ -28,8 +26,11 @@ public class DbHandler {
 			stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery("SELECT * FROM Albumi ORDER BY JulkaisuVuosi");
 
+			// to update the table
+			model.setRowCount(0);
 			while (rs.next()) {
-				System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
+				System.out
+						.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getInt(3) + " " + rs.getString(4));
 				model.addRow(new Object[] { rs.getString(1), rs.getString(2), rs.getInt(3), rs.getString(4) });
 			}
 
@@ -111,7 +112,7 @@ public class DbHandler {
 			}
 		}
 	}
-	
+
 	public static void deleteAlbum(String album) {
 
 		Connection conn = null;

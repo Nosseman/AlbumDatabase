@@ -1,0 +1,6 @@
+CREATE TABLE Albumi (
+AlbuminNimi VARCHAR(64) NOT NULL,
+Artisti VARCHAR(64) NOT NULL,
+JulkaisuVuosi INTEGER NOT NULL,
+Genre VARCHAR(64) NOT NULL
+);
