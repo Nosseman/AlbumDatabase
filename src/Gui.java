@@ -70,7 +70,7 @@ public class Gui extends JFrame {
 		btnLoad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				DbHandler.loadDb(model);
-				System.out.println("Table updated");
+				System.out.println("Updating table...\nTable succesfully updated.");
 			}
 		});
 		btnLoad.setFont(new Font("Ink Free", Font.BOLD, 13));
